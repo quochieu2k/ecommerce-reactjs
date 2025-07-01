@@ -1,4 +1,4 @@
-@import 'normalize.css';
-@import './variable.module.scss';
-@import './mixin.module.scss';
-@import './global.module.scss';
+@forward 'normalize.css';
+@forward './variable.module.scss';
+@forward './mixin.module.scss';
+@forward './global.module.scss';

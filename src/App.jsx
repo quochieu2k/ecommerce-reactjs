@@ -6,8 +6,8 @@ function App() {
   return <>
     <MainLayout>
       <MyHeader/>
-      Content
-      <MyFooter/>
+      {/* Content
+      <MyFooter/> */}
     </MainLayout>
   </>;
 }

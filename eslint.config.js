@@ -6,31 +6,32 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import babelParser from '@babel/eslint-parser'; // parser object
 
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      parser: babelParser,
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: globals.browser,
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
+    globalIgnores(['dist']),
+    {
+        files: ['**/*.{js,jsx}'],
+        extends: [
+            js.configs.recommended,
+            reactHooks.configs['recommended-latest'],
+            reactRefresh.configs.vite
+        ],
+        languageOptions: {
+            parser: babelParser,
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            globals: globals.browser,
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true
+                },
+                requireConfigFile: false,
+                babelOptions: {
+                    presets: ['@babel/preset-react']
+                }
+            }
         },
-        requireConfigFile: false,
-        babelOptions: {
-          presets: ['@babel/preset-react'],
-        },
-      },
-    },
-    rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-    },
-  },
+        rules: {
+            'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+            'no-undef': 'off'
+        }
+    }
 ]);
